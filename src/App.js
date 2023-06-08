@@ -1,19 +1,19 @@
 import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Categories from './Components/Categories';
+import Books from './Components/Books';
+import Navbar from './Components/Navbar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Books />} />
+        <Route path="Categories" element={<Categories />} />
+      </Routes>
+    </Router>
   );
 }
 
