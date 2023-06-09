@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Categories = () => {
+const Categories = () => (
   <div>
     <button type="submit">Work in progress</button>
-  </div>;
-};
+  </div>
+);
 export default Categories;

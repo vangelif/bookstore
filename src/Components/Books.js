@@ -4,8 +4,8 @@ import Form from './Form';
 
 const Books = () => (
   <>
-    <Form />
     <List />
+    <Form />
   </>
 );
 export default Books;
