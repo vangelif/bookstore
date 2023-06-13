@@ -1,30 +1,20 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Item from './Item';
 
 const List = () => {
-  const books = [
-    {
-      id: 1,
-      Author: 'Bulgagov',
-      Title: 'Master & Margarita',
-    },
-    {
-      id: 2,
-      Author: 'Herbert',
-      Title: 'Dune',
-    },
-    {
-      id: 3,
-      Author: 'Bulgagov',
-      Title: 'Master & Margarita',
-    },
-  ];
+  const books = useSelector((state) => state.books);
   return (
     <>
       <section>
         <ul>
           {books.map((book) => (
-            <Item key={book.id} Author={book.Author} Title={book.Title} />
+            <Item
+              key={book.id}
+              id={book.id}
+              Author={book.Author}
+              Title={book.Title}
+            />
           ))}
         </ul>
       </section>
