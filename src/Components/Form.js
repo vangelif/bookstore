@@ -3,16 +3,17 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/booksSlice';
 
 const Form = () => {
-  const [newState, setnewState] = useState({
+  const [newBook, setnewBook] = useState({
     id: '',
     title: '',
     author: '',
   });
   const arrayOfBooks = useSelector((state) => state.books);
   const id = arrayOfBooks.length;
+
   const onChange = (e) => {
-    setnewState({
-      ...newState,
+    setnewBook({
+      ...newBook,
       id: (id + 1).toString(),
       [e.target.name]: e.target.value,
     });
@@ -22,8 +23,8 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addBook(newState));
-    setnewState({
+    dispatch(addBook(newBook));
+    setnewBook({
       id: '',
       title: '',
       author: '',
@@ -33,26 +34,27 @@ const Form = () => {
   return (
     <section>
       <h2>Add Book</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
-          value={newState.title}
+          value={setnewBook.title}
           onChange={onChange}
-          placeholder="Title"
+          name="title"
+          placeholder="Choose Book's Title.."
           required
         />
         <input
           type="text"
-          value={newState.author}
+          value={setnewBook.author}
           onChange={onChange}
-          placeholder="Author"
+          name="author"
+          placeholder="Choose Book's Author.."
           required
         />
-        <button onSubmit={handleSubmit} type="submit">
-          Add
-        </button>
+        <button type="submit">Add</button>
       </form>
     </section>
   );
 };
+
 export default Form;

@@ -10,10 +10,11 @@ const List = () => {
         <ul>
           {books.map((book) => (
             <Item
-              key={book.id}
-              id={book.id}
-              Author={book.Author}
-              Title={book.Title}
+              key={book.item_id}
+              itemId={book.item_id}
+              title={book.title}
+              author={book.author}
+              category={book.category}
             />
           ))}
         </ul>
