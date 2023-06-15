@@ -6,8 +6,8 @@ const List = () => {
 
   return (
     <>
-      <section>
-        <ul>
+      <section className="list-container">
+        <ul className="book-list">
           {books.map((book) => (
             <Item
               key={book.item_id}

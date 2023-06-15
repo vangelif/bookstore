@@ -29,36 +29,40 @@ const Form = () => {
   };
 
   return (
-    <section>
-      <h2>Add Book</h2>
-      <form>
-        <input
-          type="text"
-          value={setnewBook.title}
-          onChange={onChange}
-          name="title"
-          placeholder="Choose Book's Title.."
-          required
-        />
-        <input
-          type="text"
-          value={setnewBook.author}
-          onChange={onChange}
-          name="author"
-          placeholder="Choose Book's Author.."
-          required
-        />
-        <button
-          type="button"
-          onClick={async () => {
-            await dispatch(addBook(newBook));
-            setCount(add);
-          }}
-        >
-          Add
-        </button>
-      </form>
-    </section>
+    <>
+      <div className="divider" />
+      <section>
+        <h2>Add New Book</h2>
+        <form>
+          <input
+            type="text"
+            value={setnewBook.title}
+            onChange={onChange}
+            name="title"
+            placeholder="Choose Book's Title.."
+            required
+          />
+          <input
+            type="text"
+            value={setnewBook.author}
+            onChange={onChange}
+            name="author"
+            placeholder="Choose Book's Author.."
+            required
+          />
+          <button
+            className="form-button"
+            type="button"
+            onClick={async () => {
+              await dispatch(addBook(newBook));
+              setCount(add);
+            }}
+          >
+            Add
+          </button>
+        </form>
+      </section>
+    </>
   );
 };
 

@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => (
   <nav>
-    <h1>Book Store</h1>
+    <a className="nav-logo" href="#/">
+      Book Store CMS
+    </a>
     <ul>
       <li>
         <Link to="/">Books</Link>
@@ -12,6 +14,10 @@ const Navbar = () => (
         <Link to="/Categories">Categories</Link>
       </li>
     </ul>
+    <span>
+      person
+      <i className="fas fa-user-alt" />
+    </span>
   </nav>
 );
 
