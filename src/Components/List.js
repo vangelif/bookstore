@@ -1,9 +1,9 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import Item from './Item';
 
 const List = () => {
-  const books = useSelector((state) => state.books);
+  const books = useSelector((store) => store.books.bookItems);
+
   return (
     <>
       <section>

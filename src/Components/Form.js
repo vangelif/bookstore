@@ -1,40 +1,37 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/booksSlice';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { addBook, fetchedBooks } from '../redux/books/booksSlice';
 
 const Form = () => {
   const [newBook, setnewBook] = useState({
-    id: '',
+    item_id: '',
     title: '',
     author: '',
+    category: 'Fiction',
   });
-  const arrayOfBooks = useSelector((state) => state.books);
-  const id = arrayOfBooks.length;
+
+  const [count, setCount] = useState(0);
+  const add = count + 1;
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchedBooks());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [count]);
 
   const onChange = (e) => {
     setnewBook({
       ...newBook,
-      id: (id + 1).toString(),
+      item_id: `${Math.trunc(Math.random() * 10000)}`,
       [e.target.name]: e.target.value,
-    });
-  };
-
-  const dispatch = useDispatch();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(addBook(newBook));
-    setnewBook({
-      id: '',
-      title: '',
-      author: '',
     });
   };
 
   return (
     <section>
       <h2>Add Book</h2>
-      <form onSubmit={handleSubmit}>
+      <form>
         <input
           type="text"
           value={setnewBook.title}
@@ -51,7 +48,15 @@ const Form = () => {
           placeholder="Choose Book's Author.."
           required
         />
-        <button type="submit">Add</button>
+        <button
+          type="button"
+          onClick={async () => {
+            await dispatch(addBook(newBook));
+            setCount(add);
+          }}
+        >
+          Add
+        </button>
       </form>
     </section>
   );
