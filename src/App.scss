@@ -231,7 +231,7 @@ section {
 
   .form-button {
     @include button-style;
-
+    font-weight: 700;
     width: 20%;
   }
 }
