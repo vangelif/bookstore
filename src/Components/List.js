@@ -1,13 +1,14 @@
 import { useSelector } from 'react-redux';
 import Item from './Item';
+import Form from './Form';
 
 const List = () => {
   const books = useSelector((store) => store.books.bookItems);
 
   return (
     <>
-      <section>
-        <ul>
+      <section className="list-container">
+        <ul className="book-list">
           {books.map((book) => (
             <Item
               key={book.item_id}
@@ -18,6 +19,7 @@ const List = () => {
             />
           ))}
         </ul>
+        <Form />
       </section>
     </>
   );
