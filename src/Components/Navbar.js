@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaUserAlt } from 'react-icons/fa';
 
 const Navbar = () => (
   <nav>
@@ -15,8 +16,7 @@ const Navbar = () => (
       </li>
     </ul>
     <span>
-      person
-      <i className="fas fa-user-alt" />
+      <FaUserAlt className="person-icon" />
     </span>
   </nav>
 );

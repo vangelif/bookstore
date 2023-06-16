@@ -68,7 +68,7 @@ const booksSlice = createSlice({
             item_id: el,
             title: action.payload[el][0].title,
             author: action.payload[el][0].author,
-            category: 'action',
+            category: 'Science Fiction',
           };
           bookData.push(bookItem);
         });

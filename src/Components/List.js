@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import Item from './Item';
+import Form from './Form';
 
 const List = () => {
   const books = useSelector((store) => store.books.bookItems);
@@ -18,6 +19,7 @@ const List = () => {
             />
           ))}
         </ul>
+        <Form />
       </section>
     </>
   );
